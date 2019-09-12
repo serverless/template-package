@@ -14,12 +14,27 @@
     "eslint-plugin-import": "^2.18.2",
     "git-list-updated": "^1.2.1",
     "github-release-from-cc-changelog": "^2.2.0",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
     "standard-version": "^6.0.1"
   },
   "eslintConfig": {
     "extends": "@serverless/eslint-config/node",
     "root": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint"
+    ],
+    "*.{css,html,js,json,md,yaml,yml}": [
+      "prettier -c"
+    ]
   },
   "standard-version": {
     "skip": {
