@@ -6,7 +6,7 @@
   "keywords": [
     "CHANGEME"
   ],
-  "author": "serverless.com",
+  "author": "Serverless, Inc.",
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@serverless/eslint-config": "^1.2.1",
