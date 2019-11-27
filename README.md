@@ -10,15 +10,16 @@
    See proposed [Commit Message Guidelines](https://docs.google.com/document/d/1hKUs3qt_aVp_PBI1UqvfaIqKma3jAJimEoGCRGGbOqs/edit#).  
     _If for some reason in context of this project you don't find it helpful, ensure to remove all `commitlint` and `standard-version` related configuration, and cleanup `.travis.yml`._
 5. Fill all occurences of CHANGEME found in any files across a project with expected counterparts. While doing that also remove this section.
-6. Commit changes - ideally rewrite initial commit by pursuing following steps:
+6. Commit created changes, ideally by combining them into initial commit by pursuing following steps:
 
+- `git stash`
 - `git rebase -i --root`  
-  _Embrace your VIM skills, and change here 'pick' to 'edit' on first commit, then save and quit_
+  _Change here 'pick' to 'edit' on first commit_
+- `git stash pop`
 - `git add -A .`
 - `git commit --amend '-S'`  
   _Confirm on initial commit message._  
-  _(note: this one doesn't necessarily need to confirm to commitlint. To make it distinct you may use emotikon as `💥`)_.  
-  _Save and quit._
+  _(note: this one doesn't necessarily need to confirm to commitlint. To make it distinct you may use emotikon as `💥`)_.
 - `git rebase --continue`
 - `git push -f`
 
