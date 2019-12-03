@@ -15,18 +15,17 @@ PR's comming from branches have commit messages validated with [commmitlint](htt
 Releases are issued by preparing a release PR's as follows
 
 1. Create a _release_ branch (should derive from current `master` state)
-2. Bump version ranges of _all_ dependencies to latest supported versions (e.g. if latest version of a dependency is `2.3.5`, range in a `package.json` is `^2.2.4` then it should be updated to `^2.3.5`)  
+2. Bump version ranges of _all_ dependencies to latest supported versions (e.g. if latest version of a dependency is `2.3.5` and range in a `package.json` is `^2.2.4` then it should be updated to `^2.3.5`)  
    _Note: Unfortunately there seems no reliable utility to automate that (there's a [request at `npm-check-updates`](https://github.com/tjunnone/npm-check-updates/issues/581))  
    If you handle installation of dependencies through [npm-cross-link](https://github.com/medikoo/npm-cross-link#npm-cross-link) then [`--bump-deps`](https://github.com/medikoo/npm-cross-link#general-options) option will bump version ranges as expected_
-3. Commit eventual dependency version updates with:  
-   `chore: Bump dependencies`  
-   message
+3. Commit eventual dependency version updates with following commit message:  
+   `chore: Bump dependencies`
 4. Run `npm run prepare-release` command.  
-   _It'll automatically bump version in `package.json` to expected one (by inspecting changes since previous release)) and will generate new changelog entry._
+   _It'll automatically bump version in `package.json` to expected one (by inspecting changes since previous release) and will generate new changelog entry._
 5. If needed improve generated changelog entry in `CHANGELOG.md`
-6. Commit `package.json` and `CHANGELOG.md` changes with  
+6. Commit `package.json` and `CHANGELOG.md` changes with following commit message:
    `chore: Release`  
-   message (note: it is important, it's the last commit in a PR)
+   **Note: For automation purposes, it is important that it's the last commit in the PR**
 7. Push branch upstream and create a PR.  
    _Release PR's are automatically detected in CI by fact of `version` in `package.json` file being changed. In context of that build, existence of new version changelog entry (in `CHANGELOG.md`) is validated._
 8. After PR is accepted by CI and one of the reviewers, merge it via _"Rebase and merge"_ option
