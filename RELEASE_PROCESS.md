@@ -12,7 +12,7 @@ PR's comming from branches have commit messages validated with [commmitlint](htt
 
 ## Process
 
-Release are issued by preparing a release PR's as follows
+Releases are issued by preparing a release PR's as follows
 
 1. Create a _release_ branch (should derive from current `master` state)
 2. Bump version ranges of _all_ dependencies to latest supported versions (e.g. if latest version of a dependency is `2.3.5`, range in a `package.json` is `^2.2.4` then it should be updated to `^2.3.5`)  
