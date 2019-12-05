@@ -14,7 +14,7 @@ PR's comming from branches have commit messages validated with [commmitlint](htt
 
 Releases are triggered manually by preparing a release PR's as follows
 
-1. Create a _release_ branch (should derive from current `master` state)
+1. Create a `release` branch (should derive from current `master` state)
 2. Bump version ranges of _all_ dependencies to latest supported versions (e.g. if latest version of a dependency is `2.3.5` and range in a `package.json` is `^2.2.4` then it should be updated to `^2.3.5`)  
    _Note: Unfortunately there seems no reliable utility to automate that (there's a [request at `npm-check-updates`](https://github.com/tjunnone/npm-check-updates/issues/581))  
    If you handle installation of dependencies through [npm-cross-link](https://github.com/medikoo/npm-cross-link#npm-cross-link) then [`--bump-deps`](https://github.com/medikoo/npm-cross-link#general-options) option will bump version ranges as expected_
