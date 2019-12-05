@@ -44,7 +44,7 @@
   },
   "scripts": {
     "commitlint": "commitlint -f HEAD@{15}",
-    "commitlint-ci-pull-request": "commitlint -f HEAD~1",
+    "commitlint:pull-request": "commitlint -f HEAD~1",
     "lint": "eslint . --cache",
     "lint:updated": "pipe-git-updated --ext=js -- eslint --cache",
     "prepare-release": "standard-version && prettier --write CHANGELOG.md",
