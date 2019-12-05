@@ -2,17 +2,17 @@
 
 ## Semi-automation
 
-This project uses [semantic commit messages](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#summary) which allows to streamline the release process (versioning and changelog generation is automated)
+This project relies on [semantic commit messages](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#summary) which allows to streamline the release process (versioning and changelog generation is automated)
 
 See proposed [Commit Message Guidelines](https://docs.google.com/document/d/1hKUs3qt_aVp_PBI1UqvfaIqKma3jAJimEoGCRGGbOqs/edit#)
 
-In PR's as coming from forks (so community contributions) while its welcome, we do not require to follow semantic commit messages. Yet, such PR is expected to be squash merged by project member with single semantic commit message.
+In PR's as coming from forks (community contributions) while its welcome, we do not require to follow semantic commit messages. Yet, such PR is expected to be squash merged by project member with single semantic commit message.
 
 PR's comming from branches have commit messages validated with [commmitlint](https://commitlint.js.org/#/)
 
-## Process
+## Release flow
 
-Releases are issued by preparing a release PR's as follows
+Releases are triggered manually by preparing a release PR's as follows
 
 1. Create a _release_ branch (should derive from current `master` state)
 2. Bump version ranges of _all_ dependencies to latest supported versions (e.g. if latest version of a dependency is `2.3.5` and range in a `package.json` is `^2.2.4` then it should be updated to `^2.3.5`)  
@@ -27,7 +27,7 @@ Releases are issued by preparing a release PR's as follows
    `chore: Release`  
    **Note: For automation purpose it is important that it's the last commit in the PR**
 7. Push branch upstream and create a PR.  
-   _Release PR's are automatically detected in CI by fact of `version` in `package.json` file being changed. In context of that build, existence of new version changelog entry (in `CHANGELOG.md`) is validated._
+   _Release PR's are automatically detected in CI by fact of `version` in `package.json` file being changed in last commit. In context of that build, existence of new version changelog entry (in `CHANGELOG.md`) is validated._
 8. After PR is accepted by CI and one of the reviewers, merge it via _"Rebase and merge"_ option
 
 Further actions are automated in CI context:
