@@ -16,7 +16,7 @@
     "github-release-from-cc-changelog": "^2.2.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "standard-version": "^7.1.0"
   },
   "eslintConfig": {
