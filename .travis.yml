@@ -90,10 +90,10 @@ jobs:
 
     # master branch
     - name: 'Tag on version bump - Node.js v12'
+      if: branch = master AND type = push
       env:
         # GITHUB_TOKEN
         - secure: CHANGEME
-      if: branch = master AND type = push
       node_js: 12
       script:
         # If package version was changed with last merged PR, push tag
