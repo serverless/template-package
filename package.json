@@ -9,15 +9,15 @@
   "author": "Serverless, Inc.",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
-    "@serverless/eslint-config": "^1.2.1",
-    "eslint": "^6.8.0",
+    "@serverless/eslint-config": "^2.1.0",
+    "eslint": "^7.0.0",
     "eslint-plugin-import": "^2.20.1",
     "git-list-updated": "^1.2.1",
     "github-release-from-cc-changelog": "^2.2.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
     "prettier": "^2.0.2",
-    "standard-version": "^7.1.0"
+    "standard-version": "^8.0.0"
   },
   "eslintConfig": {
     "extends": "@serverless/eslint-config/node",
