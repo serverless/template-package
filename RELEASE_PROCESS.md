@@ -24,15 +24,14 @@ Releases are triggered manually by preparing a release PR's as follows
    _It'll automatically bump version in `package.json` to expected one (by inspecting changes since previous release) and will generate new changelog entry._
 5. If needed improve generated changelog entry in `CHANGELOG.md`
 6. Commit `package.json` and `CHANGELOG.md` changes with following commit message:
-   `chore: Release`  
-   **Note: For automation purpose it is important that it's the last commit in the PR**
+   `chore: Release`
 7. Push branch upstream and create a PR.  
    _Release PR's are automatically detected in CI by fact of `version` in `package.json` file being changed in last commit. In context of that build, existence of new version changelog entry (in `CHANGELOG.md`) is validated._
 8. After PR is accepted by CI and one of the reviewers, merge it via _"Rebase and merge"_ option
 
 Further actions are automated in CI context:
 
-8. `master` CI build detects that release PR was merged (by fact that it covers change of `version` field in `package.json` file). Having that (after successufl tests pass) version tag is created and pushed to the repository.
+8. `master` CI build detects that release PR was merged (by fact that it covers change of `version` field in `package.json` file). Having that (after successful tests pass) version tag is created and pushed to the repository.
 9. _tag_ CI build, publishes new version to npm, also it retrieves release notes from CHANGELOG.md and publishes them to GitHub.
 
 ### Updating release notes for already published versions

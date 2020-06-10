@@ -10,7 +10,9 @@
    See proposed [Commit Message Guidelines](https://docs.google.com/document/d/1hKUs3qt_aVp_PBI1UqvfaIqKma3jAJimEoGCRGGbOqs/edit#).  
     _If for some reason in context of this project you don't find it helpful, ensure to remove all `commitlint` and `standard-version` related configuration, and cleanup `.travis.yml`._
 5. Fill all occurences of CHANGEME found in any files across a project with expected counterparts. While doing that also remove this section.
-6. Commit created changes, ideally by combining them into initial commit by pursuing following steps:
+6. (_Needed for automatic tagging of new releases_) Using [setup-cicd-resources](https://github.com/serverlessinc/setup-cicd-resources) helper Configure `GET_LAST_VALIDATED_COMMIT_HASH_URL` and `PUT_LAST_VALIDATED_COMMIT_HASH_URL` GitHub Secrets for CI/CD
+7. (_Needed for automatic tagging of new releases_)Configure [serverless-ci](https://github.com/serverless-ci) auth token (just `piblic_repo` scope is needed) into `USER_GITHUB_TOKEN` GitHub secret for CI/CD
+8. Commit created changes, ideally by combining them into initial commit by pursuing following steps:
 
 - `git stash`
 - `git rebase -i --root`  
