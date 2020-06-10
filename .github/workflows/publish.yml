@@ -12,8 +12,10 @@ jobs:
     name: Publish
     runs-on: ubuntu-latest
     env:
-      # Authentication token provided by GitHub automatically
-      CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # It'll work with secrets.GITHUB_TOKEN (which is provided by GitHub unconditionally)
+      # Still then "github-actions" will be mentioned release author.
+      # It's nicer if it's "serverless-ci"
+      GITHUB_TOKEN: ${{ secrets.USER_GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2

@@ -14,9 +14,6 @@ jobs:
       # See https://github.com/serverlessinc/setup-cicd-resources
       GET_LAST_VALIDATED_COMMIT_HASH_URL: ${{ secrets.GET_LAST_VALIDATED_COMMIT_HASH_URL }}
       PUT_LAST_VALIDATED_COMMIT_HASH_URL: ${{ secrets.PUT_LAST_VALIDATED_COMMIT_HASH_URL }}
-
-      # serverless-ci user authentication token
-      USER_GITHUB_TOKEN: ${{ secrets.USER_GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -25,6 +22,7 @@ jobs:
           # It's loose and imperfect assumption that no more than 30 commits will be pushed at once
           fetch-depth: 30
           # Tag needs to be pushed with real user token, otherwise pushed tag won't trigger the actions workflow
+          # Hence we're passing 'serverless-ci' user authentication token
           token: ${{ secrets.USER_GITHUB_TOKEN }}
 
       - name: Resolve last validated commit hash (for `git diff` purposes)
