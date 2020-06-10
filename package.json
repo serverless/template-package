@@ -10,12 +10,12 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@serverless/eslint-config": "^2.1.0",
-    "eslint": "^7.0.0",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint": "^7.2.0",
+    "eslint-plugin-import": "^2.21.2",
     "git-list-updated": "^1.2.1",
     "github-release-from-cc-changelog": "^2.2.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.6",
+    "lint-staged": "^10.2.9",
     "prettier": "^2.0.5",
     "standard-version": "^8.0.0"
   },
