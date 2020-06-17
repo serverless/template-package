@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # It'll work with secrets.GITHUB_TOKEN (which is provided by GitHub unconditionally)
-      # Still then "github-actions" will be mentioned release author.
-      # It's nicer if it's "serverless-ci"
+      # Still then release author would be "github-actions". It's better if it's dedicated repo bot
       GITHUB_TOKEN: ${{ secrets.USER_GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
