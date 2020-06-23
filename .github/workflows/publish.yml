@@ -38,10 +38,7 @@ jobs:
         #       as it appears actions/setup-node sets own value
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          # Ensure to not publish .github folder
-          echo '/.github' > .npmignore
-          npm publish
+        run: npm publish
 
       # Note: No need to install dependencies as:
       # 1. We have retrieved cached `node_modules` for very same `package.json`
