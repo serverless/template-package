@@ -26,7 +26,7 @@ jobs:
           path: /home/runner/last-validated-commit-hash
 
   linuxNode14:
-    name: '[Linux] Node.js 14: Test'
+    name: '[Linux] Node.js 14: Unit tests'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -56,11 +56,11 @@ jobs:
         run: |
           npm update --no-save
           npm update --save-dev --no-save
-      - name: test
+      - name: Unit tests
         run: npm test -- -b
 
   windowsNode14:
-    name: '[Windows] Node.js v14: Test'
+    name: '[Windows] Node.js v14: Unit tests'
     runs-on: windows-latest
     steps:
       - name: Checkout repository
@@ -90,11 +90,11 @@ jobs:
         run: |
           npm update --no-save
           npm update --save-dev --no-save
-      - name: Test
+      - name: Unit tests
         run: npm test-- -b
 
   linuxNode12:
-    name: '[Linux] Node.js 12: Isolated test'
+    name: '[Linux] Node.js 12: Isolated unit tests'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -124,11 +124,11 @@ jobs:
         run: |
           npm update --no-save
           npm update --save-dev --no-save
-      - name: Test
+      - name: Unit tests
         run: npm run test:isolated -- -b
 
   linuxNode10:
-    name: '[Linux] Node.js v10: Test with coverage'
+    name: '[Linux] Node.js v10: Unit tests with coverage'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -158,7 +158,7 @@ jobs:
         run: |
           npm update --no-save
           npm update --save-dev --no-save
-      - name: Test
+      - name: Unit tests
         run: npm test -- -b
       - name: Push coverage
         run: npx codecov
