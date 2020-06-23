@@ -19,19 +19,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Retrieve ~/.npm from cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: npm-v14-${{ runner.os }}-refs/heads/master-${{ hashFiles('package.json') }}
-          restore-keys: npm-v14-${{ runner.os }}-refs/heads/master-
       - name: Retrieve node_modules from cache
         id: cacheNodeModules
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: node-modules-dev-v14-${{ runner.os }}-refs/heads/master-${{ hashFiles('package.json') }}
-          restore-keys: node-modules-dev-v14-${{ runner.os }}-refs/heads/master-
+          key: node-modules-v14-${{ runner.os }}-refs/heads/master-${{ hashFiles('package.json') }}
+          restore-keys: node-modules-v14-${{ runner.os }}-refs/heads/master-
 
       - name: Install Node.js and npm
         uses: actions/setup-node@v1
@@ -49,9 +43,11 @@ jobs:
           echo '/.github' > .npmignore
           npm publish
 
-      - name: Install dev dependencies
-        if: steps.cacheNodeModules.outputs.cache-hit != 'true'
-        run: npm update --save-dev --no-save
+      # Note: No need to install dependencies as:
+      # 1. We have retrieved cached `node_modules` for very same `package.json`
+      #    as stored with recent `master `build
+      # 2. If for some reason cache retrieval fails `npx` will download and install
+      #    `github-release-from-cc-changelog`
 
       - name: Publish release notes
         run: |
