@@ -7,8 +7,8 @@ on:
     branches: [master]
 
 jobs:
-  lintFormattingAndNode14Test:
-    name: 'Lint, Formatting, Eventual Changelog & Node.js 14: Test'
+  linuxNode14:
+    name: '[Linux] Node.js 14: Lint, Formatting, Eventual Commitlint, Eventual Changelog & Test'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -66,8 +66,8 @@ jobs:
       - name: test
         run: npm test -- -b
 
-  node12IsolatedTest:
-    name: 'Node.js 12: Isolated test'
+  linuxNode12:
+    name: '[Linux] Node.js 12: Isolated test'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -104,8 +104,8 @@ jobs:
       - name: Test
         run: npm run test:isolated -- -b
 
-  node10Test:
-    name: 'Node.js v10: Test'
+  linuxNode10:
+    name: '[Linux] Node.js v10: Test'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
