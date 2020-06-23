@@ -128,7 +128,7 @@ jobs:
         run: npm run test:isolated -- -b
 
   linuxNode10:
-    name: '[Linux] Node.js v10: Test'
+    name: '[Linux] Node.js v10: Test with coverage'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -160,6 +160,8 @@ jobs:
           npm update --save-dev --no-save
       - name: Test
         run: npm test -- -b
+      - name: Push coverage
+        run: npx codecov
 
   tagIfNewVersion:
     name: Tag if new version

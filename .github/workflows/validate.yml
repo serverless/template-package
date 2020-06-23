@@ -143,7 +143,7 @@ jobs:
         run: npm run test:isolated -- -b
 
   linuxNode10:
-    name: '[Linux] Node.js v10: Test'
+    name: '[Linux] Node.js v10: Test with coverage'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -178,4 +178,6 @@ jobs:
           npm update --no-save
           npm update --save-dev --no-save
       - name: Test
-        run: npm test-- -b
+        run: npm run coverage
+      - name: Push coverage
+        run: npx codecov

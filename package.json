@@ -19,6 +19,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.9",
     "mocha": "^6.1.1",
+    "nyc": "^15.1.0",
     "prettier": "^2.0.5",
     "standard-version": "^8.0.0"
   },
@@ -58,6 +59,7 @@
   "scripts": {
     "commitlint": "commitlint -f HEAD@{15}",
     "commitlint:pull-request": "commitlint -f HEAD~1",
+    "coverage": "nyc npm test",
     "lint": "eslint .",
     "lint:updated": "pipe-git-updated --ext=js -- eslint",
     "prepare-release": "standard-version && prettier --write CHANGELOG.md",
