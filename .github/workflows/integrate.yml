@@ -59,6 +59,40 @@ jobs:
       - name: test
         run: npm test -- -b
 
+  windowsNode14:
+    name: '[Windows] Node.js v14: Test'
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Retrieve ~/.npm from cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: npm-v14-${{ runner.os }}-${{ github.ref }}-${{ hashFiles('package.json') }}
+          restore-keys: npm-v14-${{ runner.os }}-${{ github.ref }}-
+      - name: Retrieve node_modules from cache
+        id: cacheNodeModules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: node-modules-v14-${{ runner.os }}-${{ github.ref }}-${{ hashFiles('package.json') }}
+          restore-keys: node-modules-v14-${{ runner.os }}-${{ github.ref }}-
+
+      - name: Install Node.js and npm
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies
+        if: steps.cacheNodeModules.outputs.cache-hit != 'true'
+        run: |
+          npm update --no-save
+          npm update --save-dev --no-save
+      - name: Test
+        run: npm test-- -b
+
   linuxNode12:
     name: '[Linux] Node.js 12: Isolated test'
     runs-on: ubuntu-latest
