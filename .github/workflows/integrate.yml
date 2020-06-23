@@ -57,7 +57,7 @@ jobs:
           npm update --no-save
           npm update --save-dev --no-save
       - name: test
-        run: npm test
+        run: npm test -- -b
 
   node12IsolatedTest:
     name: 'Node.js 12: Isolated test'
@@ -91,7 +91,7 @@ jobs:
           npm update --no-save
           npm update --save-dev --no-save
       - name: Test
-        run: npm run test:isolated
+        run: npm run test:isolated -- -b
 
   node10Test:
     name: 'Node.js v10: Test'
@@ -125,7 +125,7 @@ jobs:
           npm update --no-save
           npm update --save-dev --no-save
       - name: Test
-        run: npm test
+        run: npm test -- -b
 
   tagIfNewVersion:
     name: Tag if new version
