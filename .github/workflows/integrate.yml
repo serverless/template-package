@@ -91,7 +91,7 @@ jobs:
           npm update --no-save
           npm update --save-dev --no-save
       - name: Unit tests
-        run: npm test-- -b
+        run: npm test -- -b
 
   linuxNode12:
     name: '[Linux] Node.js 12: Isolated unit tests'
