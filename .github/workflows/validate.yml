@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          # For commitlint purpose ensure to have complete list of PR commits
+          # It's loose and imperfect assumption that PR has no more than 30 commits
+          fetch-depth: 30
 
       - name: Retrieve last master commit (for `git diff` purposes)
         run: |
