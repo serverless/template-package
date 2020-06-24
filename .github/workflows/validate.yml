@@ -21,7 +21,7 @@ jobs:
       - name: Retrieve last master commit (for `git diff` purposes)
         run: |
           git checkout -b pr
-          git fetch --prune --depth=1 origin +refs/heads/master:refs/remotes/origin/master
+          git fetch --prune --depth=30 origin +refs/heads/master:refs/remotes/origin/master
           git checkout master
           git checkout pr
 
