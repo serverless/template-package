@@ -56,6 +56,21 @@
       "@serverless/test/setup/restore-env"
     ]
   },
+  "nyc": {
+    "all": true,
+    "exclude": [
+      ".github/**",
+      "coverage/**",
+      "test/**",
+      "commitlint.config.js",
+      "prettier.config.js"
+    ],
+    "reporter": [
+      "lcov",
+      "html",
+      "text-summary"
+    ]
+  },
   "scripts": {
     "commitlint": "commitlint -f HEAD@{15}",
     "commitlint:pull-request": "commitlint -f HEAD~1",
