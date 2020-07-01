@@ -11,7 +11,7 @@ env:
 
 jobs:
   linuxNode14:
-    name: '[Linux] Node.js 14: Unit tests'
+    name: '[Linux] Node.js v14: Unit tests'
     runs-on: ubuntu-latest
     steps:
       - name: Resolve last validated commit hash (for `git diff` purposes)
@@ -93,7 +93,7 @@ jobs:
         run: npm test -- -b
 
   linuxNode12:
-    name: '[Linux] Node.js 12: Isolated unit tests'
+    name: '[Linux] Node.js v12: Isolated unit tests'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
