@@ -62,7 +62,7 @@ jobs:
         run: npm run lint:updated
       - name: Validate Commit messages
         if: github.event.pull_request.base.repo.id == github.event.pull_request.head.repo.id
-        run: npm run commitlint:pull-request
+        run: npx commitlint -f master
       - name: Validate changelog (if new version)
         run: |
           NEW_VERSION=`git diff -U0 master package.json | grep '"version": "' | tail -n 1 | grep -oE "[0-9]+\.[0-9]+\.[0-9]+"` || :
