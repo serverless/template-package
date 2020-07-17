@@ -12,6 +12,8 @@
     "@commitlint/cli": "^8.3.5",
     "@serverless/eslint-config": "^2.1.0",
     "@serverless/test": "^3.8.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^7.2.0",
     "eslint-plugin-import": "^2.21.2",
     "git-list-updated": "^1.2.1",
