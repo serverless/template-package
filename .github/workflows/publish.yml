@@ -12,8 +12,9 @@ jobs:
     name: Publish
     runs-on: ubuntu-latest
     env:
-      # It'll work with secrets.GITHUB_TOKEN (which is provided by GitHub unconditionally)
-      # Still then release author would be "github-actions". It's better if it's dedicated repo bot
+      # Ensure release notes are published by our `serverless-ci` bot
+      # (If instead we'd use unconditionally provided secrets.GITHUB_TOKEN then
+      # "github-actions" user will be listed as release publisher)
       GITHUB_TOKEN: ${{ secrets.USER_GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
