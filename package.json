@@ -8,23 +8,6 @@
     "CHANGEME"
   ],
   "author": "Serverless, Inc.",
-  "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
-    "@serverless/eslint-config": "^3.0.0",
-    "@serverless/test": "^4.8.0",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "eslint": "^7.8.1",
-    "eslint-plugin-import": "^2.22.0",
-    "git-list-updated": "^1.2.1",
-    "github-release-from-cc-changelog": "^2.2.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.3.0",
-    "mocha": "^6.1.1",
-    "nyc": "^15.1.0",
-    "prettier": "^2.1.1",
-    "standard-version": "^9.0.0"
-  },
   "eslintConfig": {
     "extends": "@serverless/eslint-config/node",
     "root": true
@@ -72,6 +55,23 @@
       "html",
       "text-summary"
     ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@serverless/eslint-config": "^3.0.0",
+    "@serverless/test": "^4.8.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.8.1",
+    "eslint-plugin-import": "^2.22.0",
+    "git-list-updated": "^1.2.1",
+    "github-release-from-cc-changelog": "^2.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.3.0",
+    "mocha": "^6.1.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.1.1",
+    "standard-version": "^9.0.0"
   },
   "scripts": {
     "commitlint": "commitlint -f HEAD@{15}",
