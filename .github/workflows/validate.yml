@@ -99,6 +99,49 @@ jobs:
       - name: Unit tests
         run: npm test -- -b
 
+  linuxNode17:
+    name: '[Linux] Node.js 17: Unit tests on npm package'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Retrieve dependencies from cache
+        id: cacheNpm
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: npm-v17-${{ runner.os }}-${{ github.ref }}-${{ hashFiles('package.json') }}
+          restore-keys: |
+            npm-v17-${{ runner.os }}-${{ github.ref }}-
+            npm-v17-${{ runner.os }}-refs/heads/main-
+
+      - name: Install Node.js and npm
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17.x
+
+      - name: Install dependencies
+        if: steps.cacheNpm.outputs.cache-hit != 'true'
+        run: |
+          npm update --no-save
+          npm update --save-dev --no-save
+
+      - name: Build local package
+        run: npm pack
+
+      - name: Unit tests on npm package
+        run: |
+          NAME=`cat package.json | grep '"name": "' | grep -oE ": .*" | grep -oE '[^: ",]+'`
+          VERSION=`cat package.json | grep '"version": "' | grep -oE ": .*" | grep -oE '[^: ",]+'`
+          tar zxf "${NAME}-${VERSION}.tgz"
+          cp -R test "package"
+          ln -s "$(pwd)"/node_modules "package/node_modules"
+          cd "package"
+          npm test -- -b
+
   linuxNode14:
     name: '[Linux] Node.js 14: Isolated unit tests'
     runs-on: ubuntu-latest
